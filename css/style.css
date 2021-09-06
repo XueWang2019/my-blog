@@ -1,0 +1,100 @@
+@import url("header.css");
+@import url("intro.css");
+@import url("language.css");
+@import url("contact.css");
+@import url("footer.css");
+
+html,body{
+  margin:0;
+  padding:0;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  /*border: 2px solid rgb(0,255,170);*/
+  grid-template-areas:
+   "hd" 
+   "int" 
+   "lg" 
+   "left"
+   "mid" 
+   "right" 
+   "ft";
+ }
+
+.shop{
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items: center;
+  
+}
+
+.shop > a {
+  margin-top: auto;
+  padding: 0.5rem;
+  color: rgb(10, 7, 165);  
+}
+
+.shop > a:hover {
+    color: blue;
+  }
+  
+.shop >  a:active {
+    color: rgb(8, 100, 23);
+  }
+
+
+.ds{
+  grid-area:mid;
+  display: flex;
+  flex-direction: column;
+  justify-content:first baseline;
+  align-items: center;  
+}
+
+.ds > a {
+  margin-top: auto;
+  padding: 0.5rem;
+  color: rgb(10, 7, 165);  
+}
+
+.ds > a:hover {
+  color: blue;
+}
+
+.ds >  a:active {
+  color: rgb(8, 100, 23);
+}
+
+.text {
+	  display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 6px grey;
+    background: white;
+    border-radius: 1%;
+    max-width: 90%;
+}
+
+
+.box{
+  border: 2px solid rgb(237, 242, 243);
+  /*background: #53c0f3*/
+}
+
+@media(min-width:900px){
+  .container{
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px 250px 1fr;
+    margin:auto;
+    grid-template-rows: 230px 1fr auto;
+    grid-template-areas:"hd int int int int lg" "left left mid mid right right" "ft ft ft ft ft ft";
+    /*border: 2px solid rgb(0, 255, 170);*/
+  }
+}

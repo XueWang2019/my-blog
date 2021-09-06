@@ -1,0 +1,17 @@
+.language{
+  grid-area:lg;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;  
+  
+}
+.language > a {  
+  color: rgb(10, 7, 165);  
+}
+.language > a:hover {
+    color: blue;
+}  
+.language >  a:active {
+    color: rgb(8, 100, 23);
+}
