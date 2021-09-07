@@ -1,104 +1,209 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-body {
-  padding: 1rem;
+html,body{
+  margin:0;
+  padding:0;
 }
 
-/* Just for the fallback layout */
 
-.menu {
-  position: fixed;
-  right: 50%;
-  top: 0;
-  width: 8em;
-  margin-top: -2.5em;
-}
-.menu>ul
-{
-	list-style-type:none;
-	margin:0;
-	padding:0;
-}
-.menu>li
-{
-display:inline;
-}
 
-main {
-  max-width: 500px;
-  margin: 0 auto;
-}
-article {
-  margin: 1rem 0;
-}
-
-/* Now lets do a Grid-based layout */
-
-@supports (display: grid) {
-  main { 
-    max-width: 10000px;
-    margin: 0;
-  }
-  article {
-    margin: 0;
-  }
-  .deals {
+@media (min-width: 360px) and (max-width:900px) {
+  .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5vh 5vh 1fr 10vh;
+    grid-template-areas:
+      "hd"
+      "nav"
+      "main"
+      "ft";
+    border: 2px solid red;
+    } 
+    .nav {
+      grid-area: nav;
+    }
+    .header {
+      grid-area: hd;
+    }
+    
+    #one{
+      display:grid;
+    }
+    .deals {
+      grid-area: main;
+      display: flex;
+      flex-direction: column;
+    }
+    .footer {
+      grid-area: ft;   
+      display: flex;
+      flex-direction: column;   
+      text-align: center; 
+    }
+    .box {
+      width: 90vw;
+      flex: 1;
+      height: auto;
+    }
+    .sale-item {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid black;
+      border-radius: 1rem;
+      padding: 2rem;
+      width: 90vw;
+      /*height: 25vh;*/
+      height: calc(90vh - 100px);
+      
+    }
+    .sale-item > img {
+      order: -1;
+      align-self: center;
+      width: 100%;
+    }
+    
+    .sale-item > figure {
+      order: -1;
+      align-self: center;
+      width: 100%;  
+      display: flex;
+      flex-direction: column;
+      justify-content:flex-start;
+      align-items: center;
+      font-style: italic;
+      font-size: 10px;
+    }   
+
+    .sale-item > figure>img {  
+      width: 100%;
+    }
+    
+    .sale-item > button {
+      margin-top: auto; 
+      background: teal;
+      color: white;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+    }
+       
   }
-}
   
-.deals {
-  font-family: Avenir, Roboto, Helvetica, san-serif; 
-  font-size: 80%;
-}
-.sale-item {
-  display: flex;
-  flex-flow: column;
-  border:  1px solid black;
-  border-radius: 1rem;
-  padding: 2rem;
-}
-.sale-item > h1 {
-  margin: 1rem 1rem 0;
-}
-.sale-item > ul {
-  margin: 0 0 1rem;
-}
-.sale-item > p {
-  margin: 0.25em 1rem 1rem;
-}
-.sale-item > img {
-  order: -1;
-  align-self: center;
-  width: 100%;
-}
 
-.sale-item > figure {
-  order: -1;
-  align-self: center;
-  width: 100%;  
-  display: flex;
-  flex-direction: column;
-  justify-content:flex-start;
-  align-items: center;
-  font-style: italic;
-  font-size: 10px;
-}
 
-.sale-item > figure>img {  
-  width: 100%;
-}
 
-.sale-item > button {
-  margin-top: auto; 
-  background: teal;
-  color: white;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 1rem;
-  font-size: 1.2rem;
-}
-
+  @media (min-width: 900px) {
+    .container{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows:  60px 1fr auto;
+      /* grid-template-columns: repeat(3, 1fr); */
+      /* Initially each element has its own row for small screens */
+      grid-template-areas: "hd nav ""main main""ft ft";
+      border: 2px solid blue;
+      min-height: 100vh;
+    }
+    .header {
+      grid-area: hd;
+      display: flex;  
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .header>p{
+      text-align: center;
+    }
+    
+    .nav {
+      grid-area: nav;
+      display: flex;  
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      
+    }
+    
+    
+    #one{
+      display:grid;
+    }
+    .deals{  
+      
+      grid-area: main;  
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      border: 2px solid;
+      flex-wrap: wrap;
+      height: calc(100vh - 100px);  
+    }
+    
+    
+    .footer{
+      grid-area: ft;   
+      display: flex;
+      flex-direction: column;   
+      text-align: center;  
+    }
+    
+    
+    
+    .box{
+      width: 250px;
+      height: 500px;
+      border: 1px solid red;
+      background: #F8FA9D;
+      margin:10px;
+    }
+    
+    
+    .sale-item {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid black;
+      border-radius: 1rem;
+      padding: 2rem;
+      /*width: 90vw;*/    
+      height: calc(90vh - 100px);
+    }
+    
+    
+    .sale-item > img {
+      order: -1;
+      align-self: center;
+      width: 100%;
+    }
+    
+    .sale-item > figure {
+      order: -1;
+      align-self: center;
+      width: 100%;  
+      display: flex;
+      flex-direction: column;
+      justify-content:flex-start;
+      align-items: center;
+      font-style: italic;
+      font-size: 10px;
+    }
+           
+    .sale-item > figure>img {  
+      width: 100%;
+    }
+    
+    .sale-item > button {
+      margin-top: auto; 
+      background: teal;
+      color: white;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+  
